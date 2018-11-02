@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.github.badoualy.datepicker.DatePickerTimeline;
@@ -66,11 +67,6 @@ public class BottomSlidingDateTimePicker extends BottomSheetDialogFragment {
                 selectedCal.set(Calendar.YEAR, year);
                 selectedCal.set(Calendar.MONTH, month);
                 selectedCal.set(Calendar.DAY_OF_MONTH, day);
-                Log.w(TAG, selectedCal.getTime().toString());
-
-                if (dateTimeSetListener != null)
-                    dateTimeSetListener.onDateTimeSelected(selectedCal);
-
             }
         });
 
@@ -79,16 +75,22 @@ public class BottomSlidingDateTimePicker extends BottomSheetDialogFragment {
             @Override
             public void onTimeSelected(int hourOfTheDay) {
                 selectedCal.set(Calendar.HOUR_OF_DAY, hourOfTheDay);
-                Log.w(TAG, selectedCal.getTime().toString());
-
-                if (dateTimeSetListener != null)
-                    dateTimeSetListener.onDateTimeSelected(selectedCal);
             }
         });
 
         RecyclerView time_recycler = view.findViewById(R.id.time_picker);
         time_recycler.scrollToPosition(selectedCal.get(Calendar.HOUR_OF_DAY));
         time_recycler.setAdapter(adapter);
+
+
+        Button done_button = view.findViewById(R.id.picker_done);
+        done_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dateTimeSetListener.onDateTimeSelected(selectedCal);
+                dismissAllowingStateLoss();
+            }
+        });
 
 
     }
