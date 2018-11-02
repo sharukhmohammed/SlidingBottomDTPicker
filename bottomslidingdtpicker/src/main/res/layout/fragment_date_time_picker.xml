@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:paddingTop="40dp"
+    android:paddingBottom="40dp">
+
+    <TextView
+        android:id="@+id/selected_date_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:fontFamily="sans-serif-medium"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:textColor="@color/teal_selected"
+        android:textSize="18sp"
+        tools:text="Select a Date" />
+
+    <com.github.badoualy.datepicker.DatePickerTimeline
+        android:id="@+id/date_picker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:mti_bgLblDateSelectedColor="#1abc9c"
+        app:mti_lblDateColor="#6c6c6c"
+        app:mti_lblDateSelectedColor="#FFFFFF"
+        app:mti_lblDayColor="#6c6c6c"
+        app:mti_lblLabelColor="#0f705d"
+        app:mti_primaryColor="#FFFFFF"
+        app:mti_primaryDarkColor="#6c6c6c"
+        app:mti_ringLblDateSelectedColor="#1abc9c"
+        app:mti_tabBeforeSelectionColor="#6c6c6c"
+        app:mti_tabSelectedColor="#1abc9c" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/time_picker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:orientation="horizontal"
+        android:paddingBottom="8dp"
+        app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_time" />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:background="@color/teal_selected"
+        android:text="@string/done"
+        android:textColor="@color/white" />
+
+</LinearLayout>
