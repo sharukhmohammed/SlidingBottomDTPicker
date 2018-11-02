@@ -23,7 +23,7 @@ Add the dependency
 	        
          implementation 'com.android.support:appcompat-v7:28.0.0'
          implementation 'com.android.support:design:28.0.0'
-         implementation 'com.github.sharukhmohammed:SlidingBottomDTPicker:Tag'
+	 implementation 'com.github.sharukhmohammed:SlidingBottomDTPicker:1.1'
          
 	}
  
